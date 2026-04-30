@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "title": "Complete Web Development Bootcamp",
+        "instructor": "John Doe",
+        "duration": "20 hours",
+        "rating": 4.8,
+        "level": "Beginner",
+        "description": "Learn full-stack web development from scratch including HTML, CSS, JavaScript, and Node.js.",
+        "image": "https://i.postimg.cc/example-course1.png",
+        "category": "Development"
+    },
+    {
+        "id": 2,
+        "title": "Python for Data Science & Machine Learning",
+        "instructor": "Jane Smith",
+        "duration": "35 hours",
+        "rating": 4.9,
+        "level": "Intermediate",
+        "description": "Master Python, Pandas, NumPy, and build real-world ML models using scikit-learn and TensorFlow.",
+        "image": "https://i.postimg.cc/example-course2.png",
+        "category": "Data Science"
+    },
+    {
+        "id": 3,
+        "title": "UI/UX Design Masterclass",
+        "instructor": "Emily Chen",
+        "duration": "18 hours",
+        "rating": 4.6,
+        "level": "Beginner",
+        "description": "Design stunning user interfaces and experiences using Figma, wireframing, and prototyping techniques.",
+        "image": "https://i.postimg.cc/example-course3.png",
+        "category": "Design"
+    },
+    {
+        "id": 4,
+        "title": "React & Next.js — The Complete Guide",
+        "instructor": "Michael Brown",
+        "duration": "28 hours",
+        "rating": 4.7,
+        "level": "Intermediate",
+        "description": "Build modern, server-side rendered web apps with React 18, Next.js 14, and TypeScript.",
+        "image": "https://i.postimg.cc/example-course4.png",
+        "category": "Development"
+    },
+    {
+        "id": 5,
+        "title": "AWS Cloud Practitioner Certification",
+        "instructor": "David Wilson",
+        "duration": "22 hours",
+        "rating": 4.3,
+        "level": "Beginner",
+        "description": "Pass the AWS Cloud Practitioner exam with hands-on labs covering EC2, S3, Lambda, and core cloud concepts.",
+        "image": "https://i.postimg.cc/example-course5.png",
+        "category": "Cloud"
+    },
+    {
+        "id": 6,
+        "title": "Advanced JavaScript & ES2024",
+        "instructor": "Sarah Johnson",
+        "duration": "16 hours",
+        "rating": 4.5,
+        "level": "Advanced",
+        "description": "Deep dive into closures, async/await, Promises, design patterns, and the latest ES2024 features.",
+        "image": "https://i.postimg.cc/example-course6.png",
+        "category": "Development"
+    },
+    {
+        "id": 7,
+        "title": "Cybersecurity Fundamentals",
+        "instructor": "Chris Martinez",
+        "duration": "24 hours",
+        "rating": 4.1,
+        "level": "Beginner",
+        "description": "Understand ethical hacking, network security, penetration testing, and how to defend against cyber threats.",
+        "image": "https://i.postimg.cc/example-course7.png",
+        "category": "Security"
+    },
+    {
+        "id": 8,
+        "title": "Flutter & Dart — Mobile App Development",
+        "instructor": "Lisa Park",
+        "duration": "30 hours",
+        "rating": 4.4,
+        "level": "Intermediate",
+        "description": "Build beautiful cross-platform iOS and Android apps from scratch using Flutter and the Dart programming language.",
+        "image": "https://i.postimg.cc/example-course8.png",
+        "category": "Mobile Development"
+    }
+]
