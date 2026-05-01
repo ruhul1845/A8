@@ -1,34 +1,51 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Banner() {
     return (
-
-        <div className="w-full mx-auto  overflow-hidden relative shadow-2xl">
-
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center"
+        <div className="w-full mx-auto overflow-hidden relative shadow-2xl">
+            {/* Animated Blue Gradient Background */}
+            <div className="absolute inset-0 bg-[length:300%_300%] animate-gradient"
                 style={{
-                    backgroundImage:
-                        "url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f')",
+                    background: 'linear-gradient(135deg, #020d1f, #0a1f4e, #0d3476, #0a57b0, #0d3476, #0a1f4e)'
                 }}
-            />
+            >
+                {/* Subtle grid lines */}
+                <div className="absolute inset-0"
+                    style={{
+                        backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+                        backgroundSize: '40px 40px'
+                    }}
+                />
 
-            {/* Dark Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-900/80 to-transparent" />
+                {/* Orb 1 - top left */}
+                <div className="absolute top-[-80px] left-[-60px] w-[320px] h-[320px] rounded-full blur-3xl animate-orb1"
+                    style={{ background: 'radial-gradient(circle, rgba(29,111,232,0.8), transparent 70%)' }}
+                />
+                {/* Orb 2 - bottom right */}
+                <div className="absolute bottom-[-70px] right-[-40px] w-[280px] h-[280px] rounded-full blur-3xl animate-orb2"
+                    style={{ background: 'radial-gradient(circle, rgba(14,165,233,0.7), transparent 70%)' }}
+                />
+                {/* Orb 3 - center */}
+                <div className="absolute top-[40%] left-[45%] w-[200px] h-[200px] rounded-full blur-2xl animate-orb3"
+                    style={{ background: 'radial-gradient(circle, rgba(56,189,248,0.5), transparent 70%)' }}
+                />
+
+                {/* Shimmer sweep */}
+                <div className="absolute inset-0 animate-shimmer"
+                    style={{ background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%)' }}
+                />
+            </div>
 
             {/* Content */}
             <div className="relative z-10 min-h-[520px] flex items-center px-10 md:px-16">
                 <div className="max-w-xl text-white">
-
                     {/* Badge */}
-                    <p className="inline-block px-4 py-1 mb-5 text-sm rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/30">
-                        ✨ New Courses Available
-                    </p>
+
 
                     {/* Title */}
                     <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                        Upgrade Your Skills <br /> Today 🚀
+                        Upgrade Your Skills <br /> Today
                     </h1>
 
                     {/* Subtitle */}
@@ -45,18 +62,9 @@ export default function Banner() {
                         >
                             Get Started
                         </Link>
-
-                        <Link
-                            href="/courses"
-                            className="px-6 py-3 rounded-lg border border-white/50 text-white hover:bg-white/10 transition"
-                        >
-                            Browse Catalog
-                        </Link>
                     </div>
-
                 </div>
             </div>
         </div>
-
     );
 }

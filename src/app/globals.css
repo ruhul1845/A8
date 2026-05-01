@@ -1,2 +1,118 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+[data-theme="golden"] {
+  --background: #FFF8DC;
+  --foreground: #3D2B00;
+
+  --primary: #D4A017;
+  --primary-foreground: #1a0f00;
+
+  --secondary: #B8860B;
+  --secondary-foreground: #1a0f00;
+
+  --accent: #FFD700;
+  --accent-foreground: #1a0f00;
+
+  --muted: #F5DEB3;
+  --muted-foreground: #7A5C1E;
+
+  --card: #FAEBD7;
+  --card-foreground: #3D2B00;
+
+  --popover: #FAEBD7;
+  --popover-foreground: #3D2B00;
+
+  --border: #C8A200;
+  --input: #F5DEB3;
+  --ring: #FFD700;
+
+  --destructive: #B85C00;
+  --destructive-foreground: #FFF8DC;
+
+  --radius: 0.5rem;
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes orb1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: translate(40px, -30px) scale(1.15);
+    opacity: 0.5;
+  }
+}
+
+@keyframes orb2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translate(-30px, 20px) scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes orb3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: translate(20px, 30px) scale(1.05);
+    opacity: 0.35;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+.animate-gradient {
+  animation: gradientShift 10s ease infinite;
+}
+
+.animate-orb1 {
+  animation: orb1 7s ease-in-out infinite;
+}
+
+.animate-orb2 {
+  animation: orb2 9s ease-in-out infinite;
+}
+
+.animate-orb3 {
+  animation: orb3 11s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 4s linear infinite;
+}
