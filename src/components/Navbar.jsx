@@ -69,9 +69,7 @@ export default function Navbar() {
                     <Link href="/login" className="btn btn-ghost btn-sm rounded-full">
                         Login
                     </Link>
-                    <Link href="/register" className="btn btn-primary btn-sm rounded-full">
-                        Register
-                    </Link>
+
                 </div>
 
             </div>

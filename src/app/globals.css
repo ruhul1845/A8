@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@import "@heroui/styles";
+
 [data-theme="golden"] {
   --background: #FFF8DC;
   --foreground: #3D2B00;
