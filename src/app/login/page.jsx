@@ -1,112 +1,162 @@
 "use client";
+import { FcGoogle } from "react-icons/fc";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { authClient } from "@/lib/auth-client";
-import { Check } from "@gravity-ui/icons";
-import {
-    Button,
-    Card,
-    Description,
-    FieldError,
-    Form,
-    Input,
-    Label,
-    TextField,
-} from "@heroui/react";
-import { GrGoogle } from "react-icons/gr";
 import Link from "next/link";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function SignInPage() {
-    const onSubmit = async (e) => {
-        e.preventDefault();
+    const [showPassword, setShowPassword] = useState(false);
+    const [emailVal, setEmailVal] = useState("");
+    const [passwordVal, setPasswordVal] = useState("");
+    const [errors, setErrors] = useState({});
 
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-
-        const { data, error } = await authClient.signIn.email({
-            email,
-            password,
-            callbackURL: "/",
-        });
-
-        console.log({ data, error });
+    const validate = () => {
+        const newErrors = {};
+        if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(emailVal))
+            newErrors.email = "Please enter a valid email address";
+        if (passwordVal.length < 8)
+            newErrors.password = "Must be at least 8 characters";
+        else if (!/[A-Z]/.test(passwordVal))
+            newErrors.password = "Must contain at least one uppercase letter";
+        else if (!/[0-9]/.test(passwordVal))
+            newErrors.password = "Must contain at least one number";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
-    const handlGoogleSignIn = async () => {
-        await authClient.signIn.social({
-            provider: 'google'
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        if (!validate()) return;
+        const { data, error } = await authClient.signIn.email({
+            email: emailVal,
+            password: passwordVal,
+            callbackURL: "/",
         });
+        if (error) {
+            toast.error(error.message || "Something went wrong. Please try again.");
+        } else {
+            toast.success("SignIn successfully! Redirecting…");
+            setTimeout(() => router.push("/"), 1500);
+        }
+    };
+
+    const handleGoogleSignIn = async () => {
+        await authClient.signIn.social({ provider: "google" });
     };
 
     return (
-        <Card className="border mx-auto w-125 py-10 mt-5">
-            <h1 className="text-center text-2xl font-bold">Sign In</h1>
+        <div className="auth-page">
+            {/* Background orbs */}
+            <div className="auth-orb auth-orb-1" />
+            <div className="auth-orb auth-orb-2" />
+            <div className="auth-orb auth-orb-3" />
 
-            <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
-                <TextField
-                    isRequired
-                    name="email"
-                    type="email"
-                    validate={(value) => {
-                        if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-                            return "Please enter a valid email address";
-                        }
-                        return null;
-                    }}
-                >
-                    <Label>Email</Label>
-                    <Input placeholder="john@example.com" />
-                    <FieldError />
-                </TextField>
+            {/* Grid texture overlay */}
+            <div className="auth-grid-overlay" />
 
-                <TextField
-                    isRequired
-                    minLength={8}
-                    name="password"
-                    type="password"
-                    validate={(value) => {
-                        if (value.length < 8) {
-                            return "Password must be at least 8 characters";
-                        }
-                        if (!/[A-Z]/.test(value)) {
-                            return "Password must contain at least one uppercase letter";
-                        }
-                        if (!/[0-9]/.test(value)) {
-                            return "Password must contain at least one number";
-                        }
-                        return null;
-                    }}
-                >
-                    <Label>Password</Label>
-                    <Input placeholder="Enter your password" />
-                    <Description>
-                        Must be at least 8 characters with 1 uppercase and 1 number
-                    </Description>
-                    <FieldError />
-                </TextField>
+            {/* Glass card */}
+            <div className="auth-card">
+                {/* Brand */}
 
-                <div className="flex gap-2">
-                    <Button type="submit">
-                        <Check />
-                        Submit
-                    </Button>
-                    <Button type="reset" variant="secondary">
-                        Reset
-                    </Button>
+
+                <h1 className="auth-title">Welcome back</h1>
+                <p className="auth-subtitle">Sign in to continue your learning journey</p>
+
+                <form onSubmit={onSubmit} noValidate>
+                    {/* Email */}
+                    <div className="auth-field">
+                        <label className="auth-label">
+                            Email
+                        </label>
+                        <input
+                            className={`auth-input${errors.email ? " error" : ""}`}
+                            type="email"
+                            name="email"
+                            placeholder="john@example.com"
+                            value={emailVal}
+                            onChange={(e) => setEmailVal(e.target.value)}
+                            autoComplete="email"
+                        />
+                        {errors.email && (
+                            <p className="auth-error-msg">{errors.email}</p>
+                        )}
+                    </div>
+
+                    {/* Password */}
+                    <div className="auth-field">
+                        <label className="auth-label">
+                            Password
+                        </label>
+                        <div className="auth-input-wrap">
+                            <input
+                                className={`auth-input${errors.password ? " error" : ""}`}
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                placeholder="Enter your password"
+                                value={passwordVal}
+                                onChange={(e) => setPasswordVal(e.target.value)}
+                                style={{ paddingRight: "44px" }}
+                                autoComplete="current-password"
+                            />
+                            <button
+                                type="button"
+                                className="auth-pw-toggle"
+                                onClick={() => setShowPassword((v) => !v)}
+                                aria-label={showPassword ? "Hide password" : "Show password"}
+                            >
+                                {showPassword ? (
+                                    <AiOutlineEyeInvisible size={20} color="black" />
+                                ) : (
+                                    <AiOutlineEye size={20} color="black" />
+                                )}
+                            </button>
+                        </div>
+                        {errors.password ? (
+                            <p className="auth-error-msg">{errors.password}</p>
+                        ) : (
+                            <p className="auth-hint">
+                                At least 8 characters, 1 uppercase, 1 number
+                            </p>
+                        )}
+                    </div>
+
+                    {/* Actions */}
+                    <div className="auth-actions">
+                        <button type="submit" className="btn-auth-submit">
+
+                            Sign In
+                        </button>
+                        <button
+                            type="reset"
+                            className="btn-auth-reset"
+                            onClick={() => { setEmailVal(""); setPasswordVal(""); setErrors({}); }}
+                        >
+                            Reset
+                        </button>
+                    </div>
+                </form>
+
+                {/* Register */}
+                <p className="auth-footer-text">
+                    Don&apos;t have an account?{" "}
+                    <Link href="/signup">SignUp</Link>
+                </p>
+
+                {/* Divider */}
+                <div className="auth-divider">
+                    <div className="auth-divider-line" />
+                    <span className="auth-divider-text">OR</span>
+                    <div className="auth-divider-line" />
                 </div>
-            </Form>
 
-            {/* Register link */}
-            <p className="text-center text-sm mt-2">
-                Don&apos;t have an account?{" "}
-                <Link href="/signup" className="font-semibold underline hover:opacity-75 transition-opacity">
-                    Register
-                </Link>
-            </p>
-
-            <p className="text-center text-sm text-gray-400 my-2">Or</p>
-
-            <Button onClick={handlGoogleSignIn} variant="outline" className="w-full">
-                <GrGoogle /> Sign In With Google
-            </Button>
-        </Card>
+                {/* Google */}
+                <button onClick={handleGoogleSignIn} className="btn-google">
+                    <FcGoogle size={20} />
+                    Continue with Google
+                </button>
+            </div>
+        </div>
     );
 }

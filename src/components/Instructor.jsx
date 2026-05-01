@@ -37,7 +37,7 @@ const Instructor = async () => {
                                         src={instructor.image}
                                         alt={instructor.name}
                                         fill
-                                        className="rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 border-4 border-white shadow-md"
+                                        className="rounded-full object-cover transition-all duration-300 border-4 border-white shadow-md group-hover:shadow-[0_0_20px_4px_rgba(59,130,246,0.6)] group-hover:scale-105"
                                     />
                                 ) : (
                                     // Fallback avatar with initials
