@@ -6,7 +6,6 @@ export default function Footer() {
 
             <div className="max-w-7xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3">
 
-                {/* Brand */}
                 <div>
                     <Link href="/" className="text-2xl font-black text-white">
                         🎓 SkillSphere
@@ -17,7 +16,6 @@ export default function Footer() {
                     </p>
                 </div>
 
-                {/* Links */}
                 <div>
                     <h4 className="font-bold text-white mb-3">Quick Links</h4>
                     <ul className="space-y-2 text-blue-100">
@@ -39,7 +37,6 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Contact */}
                 <div>
                     <h4 className="font-bold text-white mb-3">Contact</h4>
                     <p className="text-blue-100">hello@skillsphere.dev</p>
@@ -68,7 +65,6 @@ export default function Footer() {
 
             </div>
 
-            {/* Bottom */}
             <div className="border-t border-white/20 py-4 text-center text-sm text-blue-100">
                 © 2026 SkillSphere | Terms & Conditions | Privacy Policy
             </div>

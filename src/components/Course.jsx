@@ -9,7 +9,6 @@ const Course = async () => {
         .slice(0, 3);
 
 
-    console.log(data[0].id)
     return (
         <div className='bg-[#fffff7] border border-white'>
             <div className='max-w-7xl mx-auto mb-20'>

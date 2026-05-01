@@ -7,24 +7,19 @@ const AllCourse = async () => {
 
     return (
         <div className="min-h-screen bg-white">
-            {/* Blue Gradient Header Section */}
             <div className="relative bg-[linear-gradient(135deg,_#020b18_0%,_#0a2550_30%,_#0d4a8f_60%,_#0a2550_100%)] py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-                {/* Decorative background elements */}
                 <div className="absolute top-0 right-0 -mt-40 -mr-40 w-80 h-80 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
                 <div className="absolute bottom-0 left-0 -mb-40 -ml-40 w-80 h-80 bg-purple-400 rounded-full opacity-10 blur-3xl"></div>
 
                 <div className="relative z-10 max-w-4xl mx-auto text-center">
-                    {/* Title */}
                     <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
                         Master New Skills with <span className="text-yellow-400">Academic Excellence</span>
                     </h1>
 
-                    {/* Subtitle */}
                     <p className="text-lg text-blue-100 mb-8">
                         Explore our curated selection of high-level courses designed for ambitious professionals and students.
                     </p>
 
-                    {/* Search Bar */}
                     <div className="flex gap-3 mb-8">
                         <input
                             type="text"
@@ -40,7 +35,6 @@ const AllCourse = async () => {
                 </div>
             </div>
 
-            {/* Courses Grid */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {data.map(course => (

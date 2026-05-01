@@ -16,7 +16,6 @@ const CourseCard = ({ course }) => {
     return (
         <div className="w-[280px] rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:-translate-y-1 transition-all duration-300">
 
-            {/* Course Image */}
             <figure className="relative h-44 w-full">
                 <Image
                     src={image}
@@ -25,7 +24,6 @@ const CourseCard = ({ course }) => {
                     sizes="280px"
                     className="object-cover"
                 />
-                {/* Category Badge on image */}
                 <span className="absolute top-3 left-3 text-xs font-medium bg-violet-600 text-white rounded-full px-3 py-1">
                     {category}
                 </span>
@@ -33,21 +31,17 @@ const CourseCard = ({ course }) => {
 
             <div className="p-4 flex flex-col gap-3">
 
-                {/* Rating */}
                 <div className="flex items-center gap-1">
                     <span className="text-yellow-400 text-sm">★</span>
                     <span className="text-sm font-semibold text-slate-700">{rating}</span>
                     <span className="text-xs text-slate-400">(2,450 ratings)</span>
                 </div>
 
-                {/* Title */}
                 <h3 className="text-base font-bold text-slate-800 leading-snug line-clamp-2">
                     {title}
                 </h3>
 
-                {/* Instructor with avatar */}
                 <div className="flex items-center gap-2">
-                    {/* Instructor image */}
                     {instructorImage ? (
                         <div className="relative w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
                             <Image
@@ -68,10 +62,8 @@ const CourseCard = ({ course }) => {
                     <p className="text-sm text-slate-500 truncate">{instructor}</p>
                 </div>
 
-                {/* Duration + Details Button */}
                 <div className="flex items-center justify-between mt-1">
                     <div className="flex items-center gap-1 text-slate-400 text-sm">
-                        {/* Clock icon */}
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
                         </svg>
